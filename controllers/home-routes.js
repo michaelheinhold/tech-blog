@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User } = require('../models');
 
+//homepage
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -24,6 +25,7 @@ router.get('/', (req, res) => {
     .catch(err => res.json(err));
 });
 
+//individual post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -47,8 +49,9 @@ router.get('/post/:id', (req, res) => {
       res.render('single-post', { post, loggedIn: req.session.loggedIn });
     })
     .catch(err => res.status(500).json(err));
-})
+});
 
+//login page
 router.get('/login', (req, res) => {
   res.render('login');
 });

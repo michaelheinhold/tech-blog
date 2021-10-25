@@ -1,0 +1,10 @@
+{{#if posts.length}}
+<h1>{{firstInArrayUsername posts}}</h1>
+
+<h2>Your posts</h2>
+{{#each posts as |post|}}
+{{> post-info post}}
+{{/each}}
+{{else}}
+<h1>You have no posts!</h1>
+{{/if}}
