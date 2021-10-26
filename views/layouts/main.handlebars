@@ -10,28 +10,33 @@
 </head>
 <body>
   <div class="wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Tech Blog</a>
+      <a class="navbar-brand" href="/">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        </ul>
         {{#if loggedIn}}
-        <div>
-          <a href="/dashboard">Dashboard</a>
-          <button id="logout">Logout</button>
-        </div>
+        <li class="nav-item">
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <button id="logout" class="nav-link">Logout</button>
+        </li>
         {{else}}
-        <div>
-          <a href="/login">Login</a>
-        </div>
+        <li class="nav-item">
+          <a href="/login" class="nav-link">Login</a>
+        </li>
         {{/if}}
+        </ul>
       </div>
     </div>
     </nav>
+    <div class="title-space">
+      <h1 class="company-title">The Tech Blog</h1>
+    </div>
     {{{ body }}}
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>

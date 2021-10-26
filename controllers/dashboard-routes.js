@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
   Post.findAll({
@@ -14,15 +14,25 @@ router.get('/', (req, res) => {
       'created_at',
       'user_id'
     ],
-    include: {
-      model: User,
-      attributes: ['username']
-    }
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'text', 'user_id', 'post_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
+    ]
   })
     .then(dbPostData => {
       //serialize data
       const posts = dbPostData.map(post=> post.get({ plain: true }));
-      res.render('dashboard', {posts, loggedIn: req.session.loggedIn });
+      res.render('dashboard', {posts, loggedIn: req.session.loggedIn, account:req.session.user_id });
     })
     .catch(err => res.status(500).json(err));
 });

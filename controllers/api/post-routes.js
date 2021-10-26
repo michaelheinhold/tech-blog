@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
   Post.findAll({
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
-    content: req.body.content,
+    content: req.session.content,
     user_id: req.body.user_id
   })
     .then(dbPostData => res.json(dbPostData))

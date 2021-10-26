@@ -1,3 +1,17 @@
+:root {
+  --main-brown: #231010;
+  --main-green: #d9ead3;
+  --dark-green: #818a7d;
+}
+
+*{
+  color: var(--main-brown);
+}
+
+body{
+  background-color: var(--main-green);
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -6,3 +20,37 @@
   display: flex;
   flex-direction: column;
 }
+
+.navbar, .title-space {
+  background-color: var(--main-brown);
+  color: var(--main-green);
+}
+
+.nav-link, .navbar-brand {
+  color: var(--main-green);
+}
+
+.nav-link:hover, .navbar-brand:hover {
+  color: var(--dark-green);
+}
+
+.navbar-toggler-icon {
+  border-color: var(--main-green);
+}
+
+#logout {
+  background: none;
+  border: none;
+}
+
+.company-title {
+  padding: 1%;
+  background-color: var(--main-green);
+  color: var(--main-brown);
+  width: fit-content;
+  margin-left: 1%;
+  margin-bottom: 2%;
+  border-radius: 1rem;
+  box-shadow: 7px 7px 0px var(--dark-green);
+}
+

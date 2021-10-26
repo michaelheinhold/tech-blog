@@ -1,1 +1,21 @@
 {{> post-info post}}
+
+<h2>Comments</h2>
+{{#if loggedIn}}
+<form action="" class="comment-form" autocomplete="off">
+  <div class="comment-input">
+    <label for="comment-text">Add a Comment:</label>
+    <input type="text" class="comment-text" name="comment-text">
+  </div>
+  <button type="submit">Comment</button>
+</form>
+{{else}}
+<h3>You are not logged in, 
+  <a href="/login">log in</a>
+  to make comments.
+</h3>
+{{/if}}
+
+{{> comments post.comments}}
+
+<script src="/js/add-comment.js"></script>
