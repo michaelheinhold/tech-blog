@@ -4,7 +4,7 @@ async function commentFormHandler(event) {
   const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const text = document.querySelector('input[name="comment-text"]').value;
+  const text = document.querySelector('textarea[name="comment-text"]').value;
 
   const response = await fetch('/api/comments', {
     method: 'post',

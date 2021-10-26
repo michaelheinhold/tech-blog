@@ -6,10 +6,22 @@
 
 *{
   color: var(--main-brown);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 body{
-  background-color: var(--main-green);
+  background-image: url('../images/High_resolution_wallpaper_background_ID_77700355873.jpg');
+  background-repeat: repeat-y;
+  background-repeat: repeat-x;
+  height: 100vh;
+  overflow: auto;
+  background-position: center;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
 .wrapper {
@@ -19,11 +31,14 @@ body{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: var(--main-green);
+  box-shadow: 7px 7px 25px var(--dark-green), -7px -7px 25px var(--dark-green);
 }
 
 .navbar, .title-space {
   background-color: var(--main-brown);
   color: var(--main-green);
+  border: var(--main-brown);
 }
 
 .nav-link, .navbar-brand {
@@ -35,7 +50,7 @@ body{
 }
 
 .navbar-toggler-icon {
-  border-color: var(--main-green);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(217,234,211, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 #logout {
@@ -54,3 +69,141 @@ body{
   box-shadow: 7px 7px 0px var(--dark-green);
 }
 
+.create-new-post button {
+  background-color: var(--main-brown);
+  margin: 1%;
+  margin-left: 5%;
+  border-radius: 1rem;
+}
+
+.create-new-post a {
+  color: var(--main-green);
+  font-size: 2rem;
+}
+
+.new-post-title {
+  font-size: 4rem;
+  margin: 2%;
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: var(--main-brown);
+  color: var(--main-green);
+  margin: 1% auto;
+  position: relative;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+
+.post, .single-comment{
+  width: 90%;
+  margin: 1% auto;
+  border: ridge var(--main-brown) 4px;
+  background-color: var(--main-brown);
+}
+
+.post-header, .meta {
+  background-color: var(--main-brown);
+  color: var(--main-green);
+  padding: 5px;
+}
+
+.post-header a {
+  text-decoration: none;
+  color: var(--main-green);
+}
+
+.post-details {
+  color: var(--main-green);
+}
+
+.post-body {
+  padding: 3%;
+  font-size: 1.2rem;
+  background-color: var(--main-green);
+}
+
+.footer{
+  background-color: var(--main-brown);
+  width: 100%;
+  height: 50%;
+}
+
+.welcome, .your-posts, .login-wrapper{
+  width: 90%;
+  margin: 3% auto;
+}
+
+.text {
+  background-color: var(--main-green);
+  padding: 1%;
+}
+
+.comments, .comments-entry, .comment-form, .new-post-wrapper{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.comments-entry{
+  margin: 2% auto;
+  font-size: 2.4rem;
+}
+
+.comment-label {
+  font-size: 1.8rem;
+}
+
+.meta {
+  font-size: 1.1rem;
+}
+
+.text {
+  font-size: 1.3rem;
+}
+
+.single-comment {
+  margin: 2% auto;
+}
+
+#login-password, #login-email, #sign-up-username,
+#sign-up-email, #sign-up-password {
+  width: fit-content;
+}
+
+@media screen and (max-width: 750px) {
+  .company-title{
+    box-shadow: none;
+    margin: 2%;
+    border-radius: .8rem;
+    padding: 1.3%;
+  }
+
+  body {
+    background-image: none;
+    padding: 0;
+  }
+
+  .wrapper {
+    box-shadow: none;
+  }
+
+  .new-post-wrapper{
+    min-width: 0px;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .new-post-title{
+    font-size: 2rem;
+  }
+
+  .post{
+    min-width: 1px;
+    margin: 15px;
+  }
+
+  .comments {
+    width: 100%;
+  }
+}

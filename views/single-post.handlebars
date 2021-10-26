@@ -1,13 +1,13 @@
 {{> post-info post}}
 
-<h2>Comments</h2>
+<h2 class="comments-entry">Comments</h2>
 {{#if loggedIn}}
-<form action="" class="comment-form" autocomplete="off">
+<form action="" class="comment-form form" autocomplete="off">
   <div class="comment-input">
-    <label for="comment-text">Add a Comment:</label>
-    <input type="text" class="comment-text" name="comment-text">
+    <label for="comment-text" class="comment-label">Add a Comment:</label>
+    <textarea type="text" rows="2" name="comment-text" class="form-control comment-text"></textarea>
   </div>
-  <button type="submit">Comment</button>
+  <button type="submit" class="submit-btn">Comment</button>
 </form>
 {{else}}
 <h3>You are not logged in, 

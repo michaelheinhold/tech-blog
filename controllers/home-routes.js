@@ -23,7 +23,8 @@ router.get('/', (req, res) => {
         include: {
           model: User,
           attributes: ['username']
-        }
+        },
+        order: ['created_at', 'ASC']
       }
     ]
   })
@@ -58,8 +59,9 @@ router.get('/post/:id', (req, res) => {
         attributes: ['id', 'text', 'user_id', 'post_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
+        order: ['created_at', 'ASC']
       }
     ]
   })
@@ -79,5 +81,9 @@ router.get('/login', (req, res) => {
 router.get('/create-post', (req, res) => {
   res.render('create-post', { loggedIn: req.session.loggedIn })
 });
+
+router.get('/sign-up', (req, res) => {
+  res.render('sign-up');
+})
 
 module.exports = router;
