@@ -1,15 +1,18 @@
-async function createPostFormHandler(event) {
+async function editPostFormHandler(event) {
   event.preventDefault();
 
   const title = document.querySelector('input[name="post-title"]').value;
   const content = document.querySelector('textarea[name="post-content"]').value;
+  const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
 
   if(title && content) {
-    const response = await fetch('/api/posts', {
-      method: 'POST',
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'PUT',
       body: JSON.stringify({
         title,
-        content
+        content,
       }),
       headers: { 'Content-Type': 'application/json' }
     })
@@ -22,4 +25,4 @@ async function createPostFormHandler(event) {
   }
 }
 
-document.querySelector('.new-post-form').addEventListener('submit', createPostFormHandler);
+document.querySelector('.edit-post-form').addEventListener('submit', editPostFormHandler);

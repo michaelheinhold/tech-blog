@@ -37,4 +37,17 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.get('/edit/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbPostData => {
+      const post = dbPostData.get({ plain: true });
+      res.render('edit-post', {post, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => res.status(500).json(err));
+})
+
 module.exports = router;

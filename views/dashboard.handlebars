@@ -7,11 +7,22 @@
     <a href="/create-post">Create a new post</a>
   </button>
 </div>
-{{#each posts as |post|}}
-{{> post-info post}}
-{{/each}}
+  <div class="post-list">
+  {{#each posts as |post|}}
+    <div class="post-header post-list-dashboard">
+      <h3>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h3>
+      <div>
+        <span class="post-details">{{format_dates post.created_at}}</span>
+        |
+        <a href="/dashboard/edit/{{post.id}}">Edit Post</a>
+      </div>
+    </div>
+  {{/each}}
+  </div>
 {{else}}
-<h1>You have no posts!</h1>
+<h1 class="welcome">You have no posts!</h1>
 <div class="create-new-post">
   <button>
     <a href="/create-post">Create a new post</a>

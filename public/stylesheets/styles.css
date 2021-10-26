@@ -87,13 +87,18 @@ body{
   text-align: center;
 }
 
-.submit-btn {
+.submit-btn, .delete-btn {
   background-color: var(--main-brown);
   color: var(--main-green);
   margin: 1% auto;
   position: relative;
   border-radius: 1rem;
   font-size: 1.5rem;
+}
+
+.delete-btn {
+  color: rgb(221, 96, 96);
+
 }
 
 .post, .single-comment{
@@ -140,7 +145,7 @@ body{
   padding: 1%;
 }
 
-.comments, .comments-entry, .comment-form, .new-post-wrapper{
+.comments, .comments-entry, .comment-form, .new-post-wrapper, .not-logged, .post-list{
   width: 90%;
   margin: 0 auto;
 }
@@ -164,6 +169,16 @@ body{
 
 .single-comment {
   margin: 2% auto;
+}
+
+.post-list-dashboard {
+  border-radius: 1.2rem;
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  padding: 1%;
+  align-items: center;
 }
 
 #login-password, #login-email, #sign-up-username,
@@ -205,5 +220,13 @@ body{
 
   .comments {
     width: 100%;
+  }
+
+  .post-list{width: 100%;}
+
+  .post-list-dashboard {
+    width: 90%;
+    margin: 3%;
+    padding: 5%;
   }
 }
