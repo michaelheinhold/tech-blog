@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const app = express();
@@ -29,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 
-app.use('/', routes);
+app.use(require('./controllers/'));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now Listening`));
