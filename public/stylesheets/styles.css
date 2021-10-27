@@ -15,10 +15,8 @@ a {
 
 body{
   background-image: url('../images/High_resolution_wallpaper_background_ID_77700355873.jpg');
-  background-repeat: repeat-y;
-  background-repeat: repeat-x;
+  background-repeat: repeat-y repeat-x;
   height: 100vh;
-  overflow: auto;
   background-position: center;
   margin: 0 auto;
   padding: 0 50px;
