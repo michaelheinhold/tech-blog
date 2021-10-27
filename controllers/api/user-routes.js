@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
