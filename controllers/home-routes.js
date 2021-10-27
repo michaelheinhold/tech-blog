@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/withAuth');
 
 //homepage
 router.get('/', (req, res) => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
       'user_id',
       'created_at',
     ],
+    order: [['created_at', 'DESC']],
     include: [
       {
         model: User,
@@ -20,11 +22,11 @@ router.get('/', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'text', 'user_id', 'post_id', 'created_at'],
+        order: [['created_at', 'DESC']],
         include: {
           model: User,
           attributes: ['username']
         },
-        order: ['created_at', 'ASC']
       }
     ]
   })
@@ -57,11 +59,11 @@ router.get('/post/:id', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'text', 'user_id', 'post_id', 'created_at'],
+        order: [['created_at', 'DESC']],
         include: {
           model: User,
           attributes: ['username'],
         },
-        order: ['created_at', 'ASC']
       }
     ]
   })
@@ -78,7 +80,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/create-post', (req, res) => {
+router.get('/create-post', withAuth, (req, res) => {
   res.render('create-post', { loggedIn: req.session.loggedIn })
 });
 
